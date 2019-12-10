@@ -39,4 +39,3 @@ function main() {
     const N = parseInt(readLine(), 10);
     console.log(numberWeird(N))
 }
-
