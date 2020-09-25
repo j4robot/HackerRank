@@ -1,3 +1,5 @@
+const { time } = require("console");
+
 function timeConverter(time){
     let PM = time.match('PM') ? true : false;
 
@@ -6,12 +8,16 @@ function timeConverter(time){
     let hour, sec
 
     if(PM){
-        hour = 12 + parseInt(time[0], 10);
+        hour = (Number(time[0]) < 12) ? 12 + parseInt(time[0], 10) : time[0];
         sec = time[2].replace('PM', '');
     }
     else{
-        hour = time[0];
+        hour = time[0] == 12 ? '00' : time[0];
         sec = time[2].replace('AM', '');
     }
     return `${hour}:${min}:${sec}`
 }
+
+console.log(timeConverter('12:40:22AM'))
+
+console.log(timeConverter('12:45:54PM'))
