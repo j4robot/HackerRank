@@ -1,0 +1,15 @@
+export function print(type, data){
+  if(type === 'head'){
+    document.querySelector('#root').innerHTML += `<span style='font-weight: bolder; color: #C31344;'>${(data)}</span></br>`;
+  }
+  
+  if(type === 'body'){
+    document.querySelector('#root').innerHTML += `<span>${(data)}</span><br/>`;
+  }
+}
+
+export const h = 'head';
+export const b = 'body';
+
+print(h, 'HEAD HERE');
+print(b, 'The body also goes here')
