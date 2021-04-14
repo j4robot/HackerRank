@@ -1,5 +1,3 @@
-//let data = '0 0 1 0 0 1 0'.split(' ').map(x => Number(x));
-
 let data = [0, 0, 1, 0, 0, 1, 0];
 let data2 = [0, 0, 0, 0, 1, 0];
 let data3 = '0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 1 0 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 0'.split(' ').map(x => Number(x));
@@ -24,9 +22,6 @@ function jumpingOnClouds(data) {
 
     return count;
 }
-
-
-
 
 let d = [1, 2, 3, 4, 10, 11].reduce((a, b) => a + b);
 
