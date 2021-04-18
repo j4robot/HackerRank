@@ -22,7 +22,3 @@ function jumpingOnClouds(data) {
 
     return count;
 }
-
-let d = [1, 2, 3, 4, 10, 11].reduce((a, b) => a + b);
-
-console.log(d)
