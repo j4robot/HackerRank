@@ -10,6 +10,3 @@ export function print(type, data){
 
 export const h = 'head';
 export const b = 'body';
-
-print(h, 'HEAD HERE');
-print(b, 'The body also goes here')
