@@ -1,7 +1,3 @@
-
-// [0] - [1] - [3] - [4] - [6]
-console.log(jumpingOnClouds(data3));
-
 export function jumpingOnClouds(data) {
     let len = data.length, count = 0, state = 0;
 
