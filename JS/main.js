@@ -1,6 +1,6 @@
 export function print(type, data){
   if(type === 'head'){
-    document.querySelector('#root').innerHTML += `<span style='font-weight: bolder; color: #C31344;'>${(data)}</span></br>`;
+    document.querySelector('#root').innerHTML += `<span style='font-weight: bold; color: #C31344;'>${(data)}</span></br>`;
   }
   
   if(type === 'body'){
