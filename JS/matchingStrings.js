@@ -1,8 +1,6 @@
 let str = ['aba', 'ops', 'aba', 'kj'];
 let que = ['aba', 'kj'];
 
-//matchingStrings (str, que)
-
 function matchingStrings1(strings, queries) {
     let temp = [];
     queries.forEach(que => {
