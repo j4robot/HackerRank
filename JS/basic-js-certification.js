@@ -47,8 +47,6 @@ async function getTeams(year, k) {
         }
     }
     result.sort();
-    console.log(newTeam)
-    console.log(result)
     return result;
 
 }
