@@ -1,5 +1,3 @@
-const { time } = require("console");
-
 function timeConverter(time){
     let PM = time.match('PM') ? true : false;
 
