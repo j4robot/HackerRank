@@ -36,6 +36,6 @@ function numberWeird(num){
 }
 
 function main() {
-    const N = parseInt(readLine(), 10);
-    console.log(numberWeird(N))
+    const n = parseInt(readLine(), 10);
+    console.log(numberWeird(n))
 }

@@ -9,7 +9,6 @@ function minOperation(arr, threshold, d){
             temp.push(arr[x])
         }
     }
-    console.log(Math.max(...temp) > threshold);
 
     return temp;//temp.includes(Math.max(...temp) > threshold) ? minOperation(temp, threshold, d) : temp;
 }

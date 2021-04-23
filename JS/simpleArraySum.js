@@ -8,9 +8,6 @@ process.stdin.setEncoding('utf-8');
 let inputString = '';
 let currentLine = 0;
 
-//https://github.com/dannyAbbs/f4c1ec66-dabc-49dc-be2c-c0b5b345b548
-
-
 process.stdin.on('data', inputStdin => {
     inputString += inputStdin;
 });
