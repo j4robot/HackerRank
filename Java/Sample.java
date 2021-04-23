@@ -25,18 +25,24 @@ public class Sample {
         System.out.println("Enter the decimal number");
         dNumber = scan.nextDouble();
         System.out.println("Enter the string");
-        variab = scan.nextLine();
+        String str = scan.nextLine();
+        variab = str;
 
         /* Print the sum of both integer variables on a new line. */
         System.out.println(iNumber + i);
         /* Print the sum of the double variables on a new line. */
-        System.out.println(dNumber + d);
+        System.out.println(round(dNumber + d, 1));
         /*
          * Concatenate and print the String variables on a new line; the 's' variable
          * above should be printed first.
          */
-        System.out.println(s + variab);
+        System.out.println(s.concat(variab));
 
         scan.close();
+    }
+
+    private static double round (double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 }
