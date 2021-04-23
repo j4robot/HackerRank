@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Sample {
 
     public static void main(String[] args) {
@@ -20,8 +21,7 @@ public class Sample {
         System.out.println("Enter the decimal number");
         dNumber = scan.nextDouble();
         System.out.println("Enter the string");
-        String str = scan.nextLine();
-        variab = str;
+        variab = scan.nextLine();
 
         /* Print the sum of both integer variables on a new line. */
         System.out.println(iNumber + i);
