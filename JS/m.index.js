@@ -1,3 +1,4 @@
+import {print} from './main.js';
 /*
  * Complete the simpleArraySum function below.
  */
