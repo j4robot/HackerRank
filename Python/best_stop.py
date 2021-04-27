@@ -5,10 +5,6 @@
 #     for i in range(r):
 #         l.append(list(map(int,input().split())))
 
-#     h, w = map(int, input().split())
-#     for i in range(h):
-#         t.append(list(map(int,input().split())))
-
 def bestSpot(heights, store):
     #
     # Write your code here.
