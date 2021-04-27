@@ -9,14 +9,6 @@
 #     for i in range(h):
 #         t.append(list(map(int,input().split())))
 
-#     for i in range(r - h + 1):
-#         for j in range(c - w + 1):
-#             temp_sum = 0
-#             for m in range(h):
-#                 for n in range(w):
-#                     temp_sum += (l[i+m][j + n] - t[m][n])**2
-#     
-
 def bestSpot(heights, store):
     #
     # Write your code here.
