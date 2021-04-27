@@ -15,10 +15,7 @@
 #             for m in range(h):
 #                 for n in range(w):
 #                     temp_sum += (l[i+m][j + n] - t[m][n])**2
-#             if smallest_sum == None or smallest_sum > temp_sum:
-#                     smallest_sum = temp_sum
-#                     point = i,j,
-#     print("{}\n{} {}".format(smallest_sum, point[0]+1, point[1]+1))
+#     
 
 def bestSpot(heights, store):
     #
