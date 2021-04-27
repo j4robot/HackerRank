@@ -1,10 +1,3 @@
-# def some(heights, store):
-#     r, c = map(int, input().split())
-#     l, t, smallest_sum, point = [], [], None, None
-
-#     for i in range(r):
-#         l.append(list(map(int,input().split())))
-
 def bestSpot(heights, store):
     #
     # Write your code here.
