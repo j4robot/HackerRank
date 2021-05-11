@@ -22,16 +22,32 @@ function solution(A) {
     let min = Math.min(...A), max = Math.max(...A);
     if (min > 1 || max < 1) return 1;
     if (min < 1 && max > 1) return 1;
-    // while (condition) {
-        
-    // }
-    //A = A.map(x => x > 0);
     let temp = A.map((x) => !A.includes(x + 1))//.indexOf(false);
     return temp + 2;
 }
 
+function solutionA(arr){
+    let item = 0;
+    while(arr.indexOf(item + 1) != -1){
+        item++
+    }
+    return item + 1;
+}
 
-console.log(solution(A));
-console.log(solution(B));
+function solutionB(arr){
+    let item = new Set(arr), start = 1;
+    while(item.has(start)){
+        start++
+    }
+    return start + 1;
+}
+
+//console.log(solutionA(A));
+//console.log(solutionA(B));
+//console.log(solutionA(C));
+console.log(solutionA(D));
+
+//console.log(solution(A));
+//console.log(solution(B));
 //console.log(solution(C));
 //console.log(solution(D));
