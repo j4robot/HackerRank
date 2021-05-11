@@ -22,7 +22,7 @@ function solution(A) {
     let min = Math.min(...A), max = Math.max(...A);
     if (min > 1 || max < 1) return 1;
     if (min < 1 && max > 1) return 1;
-    let temp = A.map((x) => !A.includes(x + 1))//.indexOf(false);
+    let temp = A.map((x) => !A.includes(x + 1)).indexOf(false);
     return temp + 2;
 }
 
