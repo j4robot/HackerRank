@@ -1,0 +1,1 @@
+const initialCoordinates = { "lat": 7.549333004, "long": -1.197379008 };
