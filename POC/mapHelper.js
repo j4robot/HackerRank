@@ -1,4 +1,4 @@
-function ParseDMS(input) {
+function parseDMS(input) {
     var parts = input.split(/[^\d\w\.]+/);    
     var lat = ConvertDMSToDD(parts[0], parts[2], parts[3], parts[4]);
     var lng = ConvertDMSToDD(parts[5], parts[7], parts[8], parts[9]);
