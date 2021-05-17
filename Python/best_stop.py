@@ -1,25 +1,3 @@
-# def some(heights, store):
-#     r, c = map(int, input().split())
-#     l, t, smallest_sum, point = [], [], None, None
-
-#     for i in range(r):
-#         l.append(list(map(int,input().split())))
-
-#     h, w = map(int, input().split())
-#     for i in range(h):
-#         t.append(list(map(int,input().split())))
-
-#     for i in range(r - h + 1):
-#         for j in range(c - w + 1):
-#             temp_sum = 0
-#             for m in range(h):
-#                 for n in range(w):
-#                     temp_sum += (l[i+m][j + n] - t[m][n])**2
-#             if smallest_sum == None or smallest_sum > temp_sum:
-#                     smallest_sum = temp_sum
-#                     point = i,j,
-#     print("{}\n{} {}".format(smallest_sum, point[0]+1, point[1]+1))
-
 def bestSpot(heights, store):
     #
     # Write your code here.
