@@ -1,24 +1,35 @@
 const initialCoordinates = { lat: 7.549333004, lng: -1.197379008 };
 const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let labelIndex = 0;
+let labelIndex = 0, activeInfoWindow = null;
 
-const capitalCities = [{ city: "KUMASI", lat: "6.392779393745608", lng: "-1.786225232790048", abbr: "AR", region: "Ashanti", totalOutlets: 0 },
-{ city: "CAPE COAST", lat: "4.930134597908729", lng: "-1.275739545075794", abbr: "CR", region: "Central", totalOutlets: 0 },
-{ city: "SUNYANI", lat: "7.136253423570669", lng: "-2.313176832408658", abbr: "BAR", region: "Brong Ahafo", totalOutlets: 0 },
-{ city: "ACCRA", lat: "5.403500755828165", lng: "-0.18597019079402344", abbr: "GR", region: "Greater Accra", totalOutlets: 0 },
-{ city: "KOFORIDUA", lat: "6.1782173649401665", lng: "-0.27053332776495154", abbr: "ER", region: "Eastern", totalOutlets: 0 },
-{ city: "TAMALE", lat: "9.20250419568835", lng: "-0.8367409341319672", abbr: "NR", region: "Northern", totalOutlets: 0 },
-{ city: "TAKORADI", lat: "4.9025510246054305", lng: "-2.2795751841658785", abbr: "WR", region: "Western", totalOutlets: 0 },
-{ city: "WA", lat: "10.059979160117981", lng: "-2.5077844369504874", abbr: "UWR", region: "Upper West", totalOutlets: 0 },
-{ city: "BOLIGATANGA", lat: "10.482514358683398", lng: "-0.8544733623684806", abbr: "UER", region: "Upper East", totalOutlets: 0 },
-{ city: "HO", lat: "6.409262159546296", lng: "0.4781930231876004", abbr: "VR", region: "Volta", totalOutlets: 0 },
+const capitalCities = [
+    { city: "KUMASI", dmsLat: '6.6666° N', dmsLng: '1.6163° W', abbr: "AR", region: "Ashanti" },
+    { city: "CAPE COAST", dmsLat: '5.1315° N', dmsLng: '1.2795° W', abbr: "CR", region: "Central" },
+    { city: "SUNYANI", dmsLat: '7.3349° N', dmsLng: '2.3123° W', abbr: "BAR", region: "Brong Ahafo" },
+    { city: "ACCRA", dmsLat: '5.6037° N', dmsLng: '0.1870° W', abbr: "GR", region: "Greater Accra" },
+    { city: "KOFORIDUA", dmsLat: '6.0784° N', dmsLng: '0.2714° W', abbr: "ER", region: "Eastern" },
+    { city: "TAMALE", dmsLat: '9.4034° N', dmsLng: '0.8424° W', abbr: "NR", region: "Northern" },
+    { city: "TAKORADI", dmsLat: '4.9016° N', dmsLng: '1.7831° W', abbr: "WR", region: "Western" },
+    { city: "WA", dmsLat: '10.0601° N', dmsLng: '2.5099° W', abbr: "UWR", region: "Upper West" },
+    { city: "BOLGATANGA", dmsLat: '10.7875° N', dmsLng: '0.8580° W', abbr: "UER", region: "Upper East" },
+    { city: "HO", dmsLat: '6.6101° N', dmsLng: '0.4785° E', abbr: "VR", region: "Volta" },
 ];
+
+// capitalCities.forEach(x => {
+//     var point = new GeoPoint(parseInt(x.lng), parseInt(x.lat));
+//     let s = { city: x.city, lng: point.getLonDeg(), lat: point.getLatDeg() }
+//     console.log(s);
+// })
 
 var initMap = function () {
     initializeMap(initialCoordinates);
 }
 
+let infowindow = null;
 const initializeMap = (coordinates) => {
+
+    infowindow = new google.maps.InfoWindow({ maxWidth: 200 });
+
     const map = new google.maps.Map(document.getElementById('map'), {
         center: coordinates,
         zoom: 7,
@@ -26,29 +37,58 @@ const initializeMap = (coordinates) => {
     });
 
     // Add a marker at the center of the map.
-    addMarker(coordinates, map);
-
-    google.maps.event.addListener(map, "click", (event) => {
-        addMarker(event.latLng, map);
-    });
+    addMarker(coordinates, map, '', {});
 
     plotCordinates(capitalCities, map, addMarker)
 }
-
 // Adds a marker to the map.
-function addMarker(location, map) {
-    // Add the marker at the clicked location, and add the next-available label
-    // from the array of alphabetical characters.
-    new google.maps.Marker({
+function addMarker(location, map, label, options) {
+    let goggleOptions = {
         position: location,
-        //label: labels[labelIndex++ % labels.length], 4.9016° N, 1.7831° W
         map: map,
-    });
+        visible: true
+    }
+
+    if(label)goggleOptions.label =  { text: label, color: "white", fontSize: "12px", fontWeight: "bold" }
+
+    const marker = new google.maps.Marker(goggleOptions);
+
+    if(options.data){
+        marker.addListener("click", () => {
+            infowindow.setContent(getRegionObjectData(options.data));
+            infowindow.open(map, marker);
+          });
+    }
 }
 
 
-function plotCordinates(data, map, marker){
-    if(data &&  data.length > 0){
-        data.forEach(item => marker({lat: parseInt(item.lat), lng: parseInt(item.lng)}, map))
+function plotCordinates(data, map, callback) {
+    if (data && data.length > 0) {
+        
+        data.forEach(item => {
+            /** Convert dms to lat & long */
+            let coords = parse_gps(`${item.dmsLat}, ${item.dmsLng}`);
+            callback({ lat: coords[0], lng: coords[1] }, map, item.abbr, {data: item});
+        });
     }
+}
+
+var getRegionObjectData = function (info) {
+    var contentString = `<div>
+        <div id="">
+        <h5 style="color: red;"><b>${info.region.toUpperCase()}</b></h5>
+        <ul style="list-style: none; padding:0px;">
+        <li><a style="text-decoration:none" href="#"><b style="color: black;">Capital: </b>${info.city}</a></li>
+        <li><a style="text-decoration:none" href="#"><b style="color: black;">DMS: </b>${info.dmsLat}, ${info.dmsLng}</a></li>
+        <li><a style="text-decoration:none" href="#"><b style="color: black;">DMS Latitude: </b>${info.dmsLat}</a></li>
+        <li><a style="text-decoration:none" href="#"><b style="color: black;">DMS Longitude: </b>${info.dmsLng}</a></li>
+        
+        <li><a href="#"></a></li>
+        <ul>   
+        </div >
+        </ul>
+        </div>
+        </div>`;
+
+    return contentString;
 }
