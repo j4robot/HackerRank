@@ -67,7 +67,7 @@ function plotCordinates(data, map, callback) {
         
         data.forEach(item => {
             /** Convert dms to lat & long */
-            let coords = parse_gps(`${item.dmsLat}, ${item.dmsLng}`);
+            let coords = parseGPS(`${item.dmsLat}, ${item.dmsLng}`);
             callback({ lat: coords[0], lng: coords[1] }, map, item.abbr, {data: item});
         });
     }
