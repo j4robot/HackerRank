@@ -19,7 +19,7 @@ const capitalCities = [
 //     var point = new GeoPoint(parseInt(x.lng), parseInt(x.lat));
 //     let s = { city: x.city, lng: point.getLonDeg(), lat: point.getLatDeg() }
 //     console.log(s);
-// })
+// });
 
 var initMap = function () {
     initializeMap(initialCoordinates);
