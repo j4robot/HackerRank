@@ -1,4 +1,4 @@
-function parse_gps( input ) {
+function parseGPS( input ) {
 
     if( input.indexOf( 'N' ) == -1 && input.indexOf( 'S' ) == -1 &&
         input.indexOf( 'W' ) == -1 && input.indexOf( 'E' ) == -1 ) {
