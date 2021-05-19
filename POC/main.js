@@ -56,7 +56,7 @@ const initializeMap = (coordinates) => {
                 fillColor: "#6CDBC3",
                 fillOpacity: 0.35,
                 map,
-                editable: true,
+                //editable: true,
                 bounds: {
                     north: points_ab.p_b.lat,
                     south: points_ab.p_a.lat,
