@@ -9,9 +9,15 @@
     <script src="./main.js"></script>
   </head>
   <body>
+    <div id="floating-panel">
+      <input type="number" id="txt--lat" placeholder="Latitude" />
+      <input type="number" id="txt--lng" placeholder="Longitude " />
+      <input id="btn--run--check" type="button" value="Run Check" />
+      <input id="btn--run--reset" type="button" value="Reset" />
+    </div>
     <div id="map"></div>
-
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjdPBaBuBLLjWOVwaZP9r3q4k4iFnGZzs&amp;callback=initMap"
       async
