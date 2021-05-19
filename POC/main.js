@@ -136,7 +136,7 @@ const initializeMap = (coordinates) => {
             } else {
                 alert('Not in defined area');
             }
-
+            //{lat: 5.603284364779614, lng: -0.18690397221498234}
         }
     });
 }
