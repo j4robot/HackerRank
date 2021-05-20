@@ -176,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //     points_ab.p_a = null, points_ab.p_b = null;
         //     countClicks = 0, rectangle.setMap(null), rectangle = null;
         // }
+
     });
 
     document.querySelector('#btn--run--eye').addEventListener("click", function () {
@@ -205,7 +206,6 @@ function addMarker(location, map, label, options) {
         });
     }
 }
-
 
 function plotCordinates(data, map, callback) {
     if (data && data.length > 0) {
