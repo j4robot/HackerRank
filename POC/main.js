@@ -64,22 +64,22 @@ const initializeMap = (coordinates) => {
                     west: points_ab.p_a.lng,
                 },
             });
-        /*
-            if (markers) {
-                let bounds = new google.maps.LatLngBounds();
-                let markerz = markers.filter(x => x.keyz === 'rect');
-                markerz.forEach((x, i) => {
-                    console.log(x.marker.position)
-                    bounds.extend(x.marker.position);
-                });
-
-                //now fit the map to the newly inclusive bounds
-                map.setZoom(7);
-                map.setCenter(bounds.getCenter());
-                map.fitBounds(bounds);
-            }
-
-            */
+            /*
+                if (markers) {
+                    let bounds = new google.maps.LatLngBounds();
+                    let markerz = markers.filter(x => x.keyz === 'rect');
+                    markerz.forEach((x, i) => {
+                        console.log(x.marker.position)
+                        bounds.extend(x.marker.position);
+                    });
+    
+                    //now fit the map to the newly inclusive bounds
+                    map.setZoom(7);
+                    map.setCenter(bounds.getCenter());
+                    map.fitBounds(bounds);
+                }
+    
+                */
 
         }
 
@@ -144,15 +144,29 @@ const initializeMap = (coordinates) => {
 document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelector('#btn--run--reset').addEventListener("click", function () {
-        //initializeMap(initialCoordinates);
-        if (rectangle && markers.length > 0) {
-            markers.forEach(x => x.keyz === 'rect' ? x.marker.setMap(null) : null);
-            markers = markers.filter(x => x.keyz !== 'rect');
-            //map.setCenter(initialCoordinates);
-           // map.setZoom(7);
-            points_ab.p_a = null, points_ab.p_b = null;
-            countClicks = 0, rectangle.setMap(null), rectangle = null;
-        }
+        let center = map.getCenter();
+        let zoom = map.getZoom();
+
+        initializeMap(initialCoordinates);
+
+        setTimeout(function () {
+            map.setCenter(center);
+            map.setZoom(zoom);
+        }, 500);
+        // if (rectangle && markers.length > 0) {
+        //     markers.forEach(x => x.keyz === 'rect' ? x.marker.setMap(null) : null);
+        //     markers = markers.filter(x => x.keyz !== 'rect');
+
+        //     let laat = map.getCenter().lat();
+        //     let lnng = map.getCenter().lng();
+        //     console.log({ laat, lnng, zoom: map.getZoom() });
+
+        //     map.setCenter(map.getCenter());
+        //     map.setZoom(map.getZoom());
+
+        //     points_ab.p_a = null, points_ab.p_b = null;
+        //     countClicks = 0, rectangle.setMap(null), rectangle = null;
+        // }
     });
 });
 
