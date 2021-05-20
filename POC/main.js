@@ -132,9 +132,9 @@ const initializeMap = (coordinates) => {
             // resultColor ? addMarker({ lat, lng }, map, '', { key: 'rect', pushMarker: true }) : alert('Not in defined area');
             if (resultColor) {
                 addMarker({ lat, lng }, map, 'A+', { key: 'rect', pushMarker: true })
-
+                alert(`Lat: ${lat} Lng: ${lng} fall in the given area`)
             } else {
-                alert('Not in defined area');
+                alert(`Lat: ${lat} Lng: ${lng} not in the given area`);
             }
             //{lat: 5.603284364779614, lng: -0.18690397221498234}
         }
@@ -147,15 +147,21 @@ document.addEventListener('DOMContentLoaded', function () {
         let center = map.getCenter();
         let zoom = map.getZoom();
 
-        initializeMap(initialCoordinates);
+        if (points_ab.p_a != null || points_ab.p_b != null) {
+            initializeMap(initialCoordinates);
 
-        setTimeout(function () {
             map.setCenter(center);
-            //map.setZoom(zoom);
-            google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
-                this.setZoom(zoom);
-            });
-        }, 500);
+            map.setZoom(zoom);
+
+            points_ab.p_a = null, points_ab.p_b = null, countClicks = 0;
+            if (rectangle) rectangle.setMap(null);
+        }
+
+
+        // google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
+        //     this.setZoom(zoom);
+        // });
+
         // if (rectangle && markers.length > 0) {
         //     markers.forEach(x => x.keyz === 'rect' ? x.marker.setMap(null) : null);
         //     markers = markers.filter(x => x.keyz !== 'rect');
@@ -171,6 +177,11 @@ document.addEventListener('DOMContentLoaded', function () {
         //     countClicks = 0, rectangle.setMap(null), rectangle = null;
         // }
     });
+
+    document.querySelector('#btn--run--eye').addEventListener("click", function () {
+        document.querySelector('#map').hidden = !document.querySelector('#map').hidden
+    });
+
 });
 
 // Adds a marker to the map.
