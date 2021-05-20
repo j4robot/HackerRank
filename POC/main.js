@@ -151,7 +151,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             map.setCenter(center);
-            map.setZoom(zoom);
+            //map.setZoom(zoom);
+            google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
+                this.setZoom(zoom);
+            });
         }, 500);
         // if (rectangle && markers.length > 0) {
         //     markers.forEach(x => x.keyz === 'rect' ? x.marker.setMap(null) : null);
