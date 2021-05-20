@@ -30,7 +30,7 @@ const initializeMap = (coordinates) => {
     });
 
     // Add a marker at the center of the map.
-    addMarker(coordinates, map, 'Center', {});
+    addMarker(coordinates, map, 'C', {});
     plotCordinates(capitalCities, map, addMarker);
 
 
@@ -171,7 +171,7 @@ function addMarker(location, map, label, options) {
     if (options.pushMarker) markers.push({ keyz: options.key ? options.key : '!', marker });
 
     if (options.data) {
-        marker.addListener("mouseover", () => {
+        marker.addListener("click", () => {
             infowindow.setContent(getRegionObjectData(options.data));
             infowindow.open(map, marker);
         });
