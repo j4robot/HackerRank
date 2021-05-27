@@ -64,23 +64,6 @@ const initializeMap = (coordinates) => {
                     west: points_ab.p_a.lng,
                 },
             });
-            /*
-                if (markers) {
-                    let bounds = new google.maps.LatLngBounds();
-                    let markerz = markers.filter(x => x.keyz === 'rect');
-                    markerz.forEach((x, i) => {
-                        console.log(x.marker.position)
-                        bounds.extend(x.marker.position);
-                    });
-    
-                    //now fit the map to the newly inclusive bounds
-                    map.setZoom(7);
-                    map.setCenter(bounds.getCenter());
-                    map.fitBounds(bounds);
-                }
-    
-                */
-
         }
 
         if (!(countClicks >= 3))
