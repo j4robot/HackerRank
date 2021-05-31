@@ -434,7 +434,7 @@ var computeDistance = function (event) {
         if (activeInfoWindow) { activeInfoWindow.close(); }
         infowindow.setContent(getDistanceInfo(distance));
         infowindow.open(map, marker);
-        console.log(marker.getPosition().toString());
+        
         activeInfoWindow = infowindow;
     }
 
