@@ -194,5 +194,8 @@ GeoPoint.prototype = {
     getLatDeg: function() {
         return this.latDeg;
     }
-
 };
+
+let radient = {
+  
+}
