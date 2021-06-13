@@ -13,6 +13,7 @@
 </body>
 <script>
 
+// Self calling named function.
     (function StoreTimerRemove() {
         let minutes = 0, seconds = 0, defaultTimer = 20 //default //60 * 30;
         function startTimer(duration) {
@@ -78,6 +79,7 @@
         function eraseCookie(name) {
             document.cookie = name + '=; Max-Age=-99999999;';
         }
+
     })();
 
 </script>
