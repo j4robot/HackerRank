@@ -15,6 +15,10 @@ const capitalCities = [
     { city: "HO", dmsLat: '6.6101° N', dmsLng: '0.4785° E', abbr: "VR", region: "Volta" }
 ];
 
+/*
+{lat: 5.601849568654911, lng: -0.18661731549877825}  {lat: 5.601652033061969, lng: -0.1863812811054677}
+*/
+
 var initMap = function () {
     initializeMap(initialCoordinates);
 }
@@ -126,6 +130,8 @@ const initializeMap = (coordinates) => {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    $('#exampleModal').modal('show');
+
     document.querySelector('#btn--run--reset').addEventListener("click", function () {
         let center = map.getCenter();
         let zoom = map.getZoom();
@@ -163,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.querySelector('#btn--run--eye').addEventListener("click", function () {
-        document.querySelector('#map').hidden = !document.querySelector('#map').hidden
+        document.querySelector('#map').hidden = !document.querySelector('#map').hidden;
     });
 
 });
