@@ -1,4 +1,4 @@
-import {GenerateUnitTest} from './main.min.js'
+import {assertEqual, assertDeepEqual} from './main.min.js'
 
 function add(a, b) {
     return a + b;
@@ -6,6 +6,8 @@ function add(a, b) {
 
 const multiply = (a, b) => a * b;
 
-GenerateUnitTest('multiply', 'multiply two numbers', multiply, [5, 5], 22);
+assertEqual('multiply', 'multiply two numbers', () => multiply(5, 5), 25);
 
-GenerateUnitTest('add', 'should add two numbers', add, [1, 1], 2);
+assertEqual('add', 'should add two numbers', () => add(5, 5), 10);
+
+assertDeepEqual('data', 'should show array', () => [1,2,3,4], [1,2,3,4]);
