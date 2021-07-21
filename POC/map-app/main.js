@@ -1,7 +1,6 @@
 const initialCoordinates = { lat: 7.549333004, lng: -1.197379008 }, points_ab = { p_a: null, p_b: null };
 let map = null, infowindow = null, rectangle = null, markers = [], countClicks = 0;;
 
-
 const capitalCities = [
     { city: "KUMASI", dmsLat: '6.6666° N', dmsLng: '1.6163° W', abbr: "AR", region: "Ashanti" },
     { city: "CAPE COAST", dmsLat: '5.1315° N', dmsLng: '1.2795° W', abbr: "CR", region: "Central" },
@@ -145,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
             points_ab.p_a = null, points_ab.p_b = null, countClicks = 0;
             if (rectangle) rectangle.setMap(null);
         }
-
 
         // google.maps.event.addListenerOnce(map, 'bounds_changed', function (event) {
         //     this.setZoom(zoom);
