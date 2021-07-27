@@ -13,8 +13,6 @@ koko = {'name': 'Susan Koko', 'age': 21, 'favoriteFoods': {"localFoods": ['Banku
 
 animals = {'wildAnimals': [], 'domesticAnimals': []}
 
-
-
 animals['wildAnimals'].append('Snake')
 animals.get('wildAnimals').append('Lion')
 animals.get('wildAnimals').append('Cheetah')
