@@ -8,9 +8,14 @@ deci = 234.23
 
 #List
 items = [1, 2, 3, 4, 5]
-print(items)
+items.append(6)
+# print(items)
+
+
 
 #Dictionary
 koko = {'name': 'Susan Koko', 'gender': 'female', 'age': 21, 'isCute': True}
-print(koko)
+
+
+print(items)
 
