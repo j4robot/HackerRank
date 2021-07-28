@@ -47,7 +47,7 @@ console.log(compareTriplets([17, 28, 30], [99, 16, 8]))
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
+const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
 
     const b = readLine().replace(/\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));
 
